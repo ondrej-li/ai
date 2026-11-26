@@ -1054,22 +1054,116 @@
     margin-block: 2rem;
   }
 
+  .prose .table-wrapper {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    container-type: inline-size;
+  }
+
   .prose table {
     inline-size: 100%;
-    border-collapse: collapse;
-    font-size: 0.94rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface-1);
+    border: 1px solid var(--border-ui);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .prose thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
   }
 
   .prose th,
   .prose td {
-    padding: 0.65rem 0.75rem;
+    padding: 0.75rem 0.9rem;
     text-align: start;
+    vertical-align: top;
     border-block-end: 1px solid var(--border-subtle);
   }
 
-  .prose th {
+  .prose thead th {
+    background: var(--surface-2);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .prose tbody th {
     color: var(--text-primary);
     font-weight: 600;
+  }
+
+  .prose tbody tr:last-child th,
+  .prose tbody tr:last-child td {
+    border-block-end: 0;
+  }
+
+  @container (inline-size < 34rem) {
+    .prose table,
+    .prose tbody,
+    .prose tr,
+    .prose th,
+    .prose td {
+      display: block;
+    }
+
+    .prose table {
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      overflow: visible;
+    }
+
+    .prose thead {
+      display: none;
+    }
+
+    .prose tbody {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .prose tbody tr {
+      background: var(--surface-1);
+      border: 1px solid var(--border-ui);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .prose tbody th {
+      background: var(--surface-2);
+      border-block-end: 1px solid var(--border-subtle);
+      color: var(--accent);
+    }
+
+    .prose tbody td {
+      display: grid;
+      gap: 0.2rem;
+      border-block-end: 1px solid var(--border-subtle);
+    }
+
+    .prose tbody td:last-child {
+      border-block-end: 0;
+    }
+
+    .prose tbody td::before {
+      content: attr(data-label);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
   }
 
   /* Accessible Code Blocks + Chroma classes (no inline styles for strict CSP) */
@@ -1212,6 +1306,8 @@
     .standby-panel,
     .card,
     .code-block,
+    .prose table,
+    .prose tbody tr,
     .menu-button,
     .btn,
     .tag,

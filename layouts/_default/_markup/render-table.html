@@ -1,0 +1,33 @@
+{{- $headers := slice -}}
+{{- range .THead -}}
+  {{- range . -}}
+    {{- $headers = $headers | append (.Text | plainify | trim " \n\r\t") -}}
+  {{- end -}}
+{{- end -}}
+<div class="table-wrapper" tabindex="0" role="region" aria-label="{{ i18n "table_region_label" }}">
+  <table>
+    <thead>
+      {{- range .THead }}
+      <tr>
+        {{- range . }}
+        <th scope="col">{{ .Text }}</th>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+      <tr>
+        {{- range $i, $cell := . }}
+          {{- $label := index $headers $i | default "" -}}
+          {{- if eq $i 0 }}
+        <th scope="row" data-label="{{ $label }}">{{ $cell.Text }}</th>
+          {{- else }}
+        <td data-label="{{ $label }}">{{ $cell.Text }}</td>
+          {{- end }}
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>
