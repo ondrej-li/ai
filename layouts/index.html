@@ -1,0 +1,71 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $postsPage := site.GetPage "posts" -}}
+{{- $aboutPage := site.GetPage "about" -}}
+{{- $state := "standby" -}}
+{{- if gt (len $posts) 0 -}}
+  {{- $state = "online" -}}
+{{- end -}}
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker mono">{{ i18n "hero_kicker" }}</p>
+      <h1 class="hero-title">{{ i18n "hero_title" }}</h1>
+      <p class="hero-lede">{{ i18n "hero_lede" }}</p>
+      <div class="cta-row">
+        {{- if gt (len $posts) 0 }}
+        <a class="btn btn-primary" href="#dispatches">{{ i18n "hero_cta_articles" }}</a>
+        {{- else }}
+          {{- with site.Home.OutputFormats.Get "rss" }}
+        <a class="btn btn-primary" href="{{ .RelPermalink }}">{{ i18n "hero_cta_rss" }}</a>
+          {{- end }}
+        {{- end }}
+        {{- with $aboutPage }}
+        <a class="btn" href="{{ .RelPermalink }}">{{ i18n "hero_cta_about" }}</a>
+        {{- end }}
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      {{ partial "robot-unit.html" (dict "mode" $state "count" (len $posts)) }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dispatches">
+  <div class="wrap">
+    <header class="section-head">
+      <div>
+        <p class="kicker mono">{{ i18n "section_dispatches_kicker" }}</p>
+        <h2>{{ i18n "section_dispatches_title" }}</h2>
+      </div>
+      {{- if and (gt (len $posts) 0) $postsPage }}
+      <a class="text-link mono" href="{{ $postsPage.RelPermalink }}">{{ i18n "section_dispatches_all" }} →</a>
+      {{- end }}
+    </header>
+
+    {{- if gt (len $posts) 0 }}
+    <div class="card-grid">
+      {{- range first 6 $posts }}
+        {{ partial "article-card.html" . }}
+      {{- end }}
+    </div>
+    {{- else }}
+    <div class="standby-panel">
+      <div class="standby-header mono">
+        <span class="standby-dot" aria-hidden="true"></span>
+        <span>{{ i18n "robot_status_standby" }}</span>
+      </div>
+      <h3>{{ i18n "empty_title" }}</h3>
+      <p>{{ i18n "empty_body" }}</p>
+      {{- with site.Home.OutputFormats.Get "rss" }}
+      <p class="standby-action">
+        <a class="text-link mono" href="{{ .RelPermalink }}">{{ i18n "empty_rss_hint" }}</a>
+      </p>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

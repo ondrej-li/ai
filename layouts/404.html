@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="section not-found">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="kicker mono">{{ i18n "not_found_code" }}</p>
+      <h1 class="hero-title">{{ i18n "not_found_title" }}</h1>
+      <p class="hero-lede">{{ i18n "not_found_body" }}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="{{ site.Home.RelPermalink }}">{{ i18n "not_found_home" }}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      {{ partial "robot-unit.html" (dict "mode" "offline" "count" 0) }}
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{- $isPost := eq .Section "posts" -}}
+{{- $postsPage := site.GetPage "posts" -}}
+<article class="section article-page">
+  <div class="wrap prose-wrap">
+    <header class="article-header">
+      {{- if $isPost }}
+      <p class="article-meta mono">
+        <span>{{ i18n "published_on" }} <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></span>
+        <span aria-hidden="true">·</span>
+        <span>{{ i18n "reading_time" .ReadingTime }}</span>
+        {{- if gt .Lastmod .Date }}
+        <span aria-hidden="true">·</span>
+        <span>{{ i18n "updated_on" }} <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time></span>
+        {{- end }}
+      </p>
+      {{- end }}
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="page-lede">{{ . }}</p>
+      {{- end }}
+      {{- if .IsTranslated }}
+      <p class="article-translations mono">
+        {{- range .Translations }}
+        <a class="text-link" href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}">{{ i18n "also_in_lang" }}: {{ .Language.LanguageName }}</a>
+        {{- end }}
+      </p>
+      {{- end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{- if $isPost }}
+    <footer class="article-footer">
+      {{- with .GetTerms "tags" }}
+      <ul class="tag-list">
+        {{- range . }}
+        <li><a class="tag" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- with $postsPage }}
+      <p class="article-back">
+        <a class="text-link mono" href="{{ .RelPermalink }}">← {{ i18n "back_to_articles" }}</a>
+      </p>
+      {{- end }}
+    </footer>
+    {{- end }}
+  </div>
+</article>
+{{ end }}

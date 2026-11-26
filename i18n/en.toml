@@ -1,0 +1,159 @@
+[skip_to_content]
+other = "Skip to main content"
+
+[nav_primary]
+other = "Primary"
+
+[nav_footer]
+other = "Footer"
+
+[nav_menu]
+other = "Menu"
+
+[nav_home]
+other = "Home"
+
+[nav_articles]
+other = "Articles"
+
+[nav_tags]
+other = "Topics"
+
+[nav_about]
+other = "About"
+
+[nav_privacy]
+other = "Privacy"
+
+[nav_rss]
+other = "RSS"
+
+[lang_switch_label]
+other = "Switch language to"
+
+[hero_kicker]
+other = "FIELD NOTES ON ARTIFICIAL INTELLIGENCE"
+
+[hero_title]
+other = "Thoughts on machines that think"
+
+[hero_lede]
+other = "Observations, experiments, and essays on large language models, coding agents, and what changes when software starts writing itself."
+
+[hero_cta_articles]
+other = "Read dispatches"
+
+[hero_cta_about]
+other = "About this log"
+
+[hero_cta_rss]
+other = "Subscribe via RSS"
+
+[robot_aria_label]
+other = "Minimalist geometric illustration of an autonomous robot head unit with optical visor and telemetry antenna"
+
+[robot_status_label]
+other = "Status"
+
+[robot_status_standby]
+other = "STANDBY // AWAITING FIRST DISPATCH"
+
+[robot_status_online]
+other = "ONLINE // DISPATCHES ACTIVE"
+
+[robot_corpus_label]
+other = "Dispatches"
+
+[robot_lang_label]
+other = "Channels"
+
+[robot_lang_value]
+other = "EN / CS"
+
+[section_dispatches_kicker]
+other = "DISPATCH LOG"
+
+[section_dispatches_title]
+other = "Latest writing"
+
+[section_dispatches_all]
+other = "View all articles"
+
+[empty_title]
+other = "Telemetry nominal — first article incoming"
+
+[empty_body]
+other = "The chassis is assembled and the bilingual archive is ready. The first essay will appear here as soon as it is published."
+
+[empty_rss_hint]
+other = "Subscribe to the RSS feed to catch it the moment it lands."
+
+[read_article]
+other = "Read"
+
+[read_article_about]
+other = "about"
+
+[reading_time]
+one = "{{ .Count }} min read"
+other = "{{ .Count }} min read"
+
+[published_on]
+other = "Published"
+
+[updated_on]
+other = "Updated"
+
+[back_to_articles]
+other = "All articles"
+
+[also_in_lang]
+other = "Read in"
+
+[tags_heading]
+other = "Topics"
+
+[tags_empty]
+other = "No topics indexed yet. Tags will appear here once articles are published."
+
+[tagged_with]
+other = "Tagged"
+
+[pagination_label]
+other = "Pagination"
+
+[pagination_prev]
+other = "Newer"
+
+[pagination_next]
+other = "Older"
+
+[footer_tagline]
+other = "Static Hugo site · Zero trackers · English & Czech"
+
+[footer_source]
+other = "Source"
+
+[footer_main_site]
+other = "ondralinek.cz"
+
+[footer_back_top]
+other = "Top"
+
+[not_found_code]
+other = "ERR 404 // SIGNAL LOST"
+
+[not_found_title]
+other = "Page not found"
+
+[not_found_body]
+other = "This coordinate does not match any archived dispatch. Return to the main console to continue."
+
+[not_found_home]
+other = "Return to home"
+
+[articles_description]
+other = "All English articles and field notes on AI, agents, and software engineering by Ondra Linek."
+
+[tags_description]
+other = "Topic index of Ondra Linek's essays and notes on artificial intelligence."

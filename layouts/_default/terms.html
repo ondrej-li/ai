@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="section page-section">
+  <div class="wrap">
+    <header class="page-header">
+      <p class="kicker mono">INDEX // TAXONOMY</p>
+      <h1>{{ i18n "tags_heading" }}</h1>
+      <p class="page-lede">{{ i18n "tags_description" }}</p>
+    </header>
+
+    {{- if gt (len .Data.Terms) 0 }}
+    <ul class="tag-index">
+      {{- range .Data.Terms.Alphabetical }}
+      <li>
+        <a class="tag-index-link" href="{{ .Page.RelPermalink }}">
+          <span class="tag-name">#{{ .Page.LinkTitle }}</span>
+          <span class="tag-count mono">{{ .Count }}</span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <div class="standby-panel">
+      <div class="standby-header mono">
+        <span class="standby-dot" aria-hidden="true"></span>
+        <span>{{ i18n "robot_status_standby" }}</span>
+      </div>
+      <p>{{ i18n "tags_empty" }}</p>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

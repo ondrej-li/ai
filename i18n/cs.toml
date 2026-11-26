@@ -1,0 +1,159 @@
+[skip_to_content]
+other = "Přeskočit na hlavní obsah"
+
+[nav_primary]
+other = "Hlavní"
+
+[nav_footer]
+other = "Patička"
+
+[nav_menu]
+other = "Menu"
+
+[nav_home]
+other = "Domů"
+
+[nav_articles]
+other = "Články"
+
+[nav_tags]
+other = "Témata"
+
+[nav_about]
+other = "O webu"
+
+[nav_privacy]
+other = "Soukromí"
+
+[nav_rss]
+other = "RSS"
+
+[lang_switch_label]
+other = "Přepnout jazyk na"
+
+[hero_kicker]
+other = "ZÁPISKY O UMĚLÉ INTELIGENCI"
+
+[hero_title]
+other = "Úvahy o strojích, které myslí"
+
+[hero_lede]
+other = "Postřehy, pokusy a eseje o velkých jazykových modelech, kódovacích agentech a o tom, co se mění, když software začíná psát sám sebe."
+
+[hero_cta_articles]
+other = "Číst záznamy"
+
+[hero_cta_about]
+other = "O tomto webu"
+
+[hero_cta_rss]
+other = "Odebírat přes RSS"
+
+[robot_aria_label]
+other = "Minimalistická geometrická ilustrace hlavy autonomního robota s optickým hledím a telemetrickou anténou"
+
+[robot_status_label]
+other = "Stav"
+
+[robot_status_standby]
+other = "POHOTOVOST // ČEKÁ SE NA PRVNÍ ZÁZNAM"
+
+[robot_status_online]
+other = "ONLINE // ZÁZNAMY AKTIVNÍ"
+
+[robot_corpus_label]
+other = "Záznamy"
+
+[robot_lang_label]
+other = "Kanály"
+
+[robot_lang_value]
+other = "EN / CS"
+
+[section_dispatches_kicker]
+other = "DENÍK ZÁZNAMŮ"
+
+[section_dispatches_title]
+other = "Nejnovější texty"
+
+[section_dispatches_all]
+other = "Všechny články"
+
+[empty_title]
+other = "Telemetrie v normě — první článek se připravuje"
+
+[empty_body]
+other = "Konstrukce je hotová a dvojjazyčný archiv připraven. První esej se tu objeví hned po zveřejnění."
+
+[empty_rss_hint]
+other = "Přihlaste si RSS kanál, ať vám první text neuteče."
+
+[read_article]
+other = "Číst"
+
+[read_article_about]
+other = "článek"
+
+[reading_time]
+one = "{{ .Count }} min čtení"
+other = "{{ .Count }} min čtení"
+
+[published_on]
+other = "Publikováno"
+
+[updated_on]
+other = "Aktualizováno"
+
+[back_to_articles]
+other = "Všechny články"
+
+[also_in_lang]
+other = "Číst v jazyce"
+
+[tags_heading]
+other = "Témata"
+
+[tags_empty]
+other = "Zatím nejsou indexována žádná témata. Štítky se objeví po vydání prvních článků."
+
+[tagged_with]
+other = "Štítek"
+
+[pagination_label]
+other = "Stránkování"
+
+[pagination_prev]
+other = "Novější"
+
+[pagination_next]
+other = "Starší"
+
+[footer_tagline]
+other = "Statický Hugo web · Bez trackerů · Anglicky i česky"
+
+[footer_source]
+other = "Zdrojový kód"
+
+[footer_main_site]
+other = "ondralinek.cz"
+
+[footer_back_top]
+other = "Nahoru"
+
+[not_found_code]
+other = "CHYBA 404 // ZTRÁTA SIGNÁLU"
+
+[not_found_title]
+other = "Stránka nenalezena"
+
+[not_found_body]
+other = "Tyto souřadnice neodpovídají žádnému uloženému záznamu. Vraťte se na hlavní stránku."
+
+[not_found_home]
+other = "Zpět domů"
+
+[articles_description]
+other = "Všechny české články a poznámky o umělé inteligenci, agentech a vývoji softwaru od Ondry Linka."
+
+[tags_description]
+other = "Seznam témat v esejích a poznámkách Ondry Linka o umělé inteligenci."

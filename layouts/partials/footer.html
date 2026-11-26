@@ -1,0 +1,28 @@
+{{- $privacyPage := site.GetPage "privacy" -}}
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-ident">
+      <div class="footer-brand">
+        {{ partial "robot-mark.html" . }}
+        <span class="mono">{{ site.Params.unitId }}</span>
+      </div>
+      <p class="footer-tagline">{{ i18n "footer_tagline" }}</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="{{ i18n "nav_footer" }}">
+      <ul>
+        <li><a href="{{ site.Params.homeSite }}">{{ i18n "footer_main_site" }}</a></li>
+        {{- with site.Home.OutputFormats.Get "rss" }}
+        <li><a href="{{ .RelPermalink }}">{{ i18n "nav_rss" }}</a></li>
+        {{- end }}
+        {{- with $privacyPage }}
+        <li><a href="{{ .RelPermalink }}" rel="privacy-policy">{{ i18n "nav_privacy" }}</a></li>
+        {{- end }}
+        <li><a href="{{ site.Params.source }}">{{ i18n "footer_source" }}</a></li>
+        <li><a href="#main-content">{{ i18n "footer_back_top" }}</a></li>
+      </ul>
+    </nav>
+
+    <p class="footer-copy mono">© {{ now.Format "2006" }} {{ site.Params.author }}</p>
+  </div>
+</footer>

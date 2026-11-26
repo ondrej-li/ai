@@ -1,0 +1,12 @@
+{{- $lang := .Type | default "text" -}}
+{{- $label := printf "Code snippet (%s)" $lang -}}
+{{- if eq site.Language.Lang "cs" -}}
+  {{- $label = printf "Ukázka kódu (%s)" $lang -}}
+{{- end -}}
+{{- $result := transform.HighlightCodeBlock . -}}
+<div class="code-block" data-lang="{{ $lang }}">
+  {{- if .Type }}
+  <div class="code-block-head mono" aria-hidden="true">{{ .Type }}</div>
+  {{- end }}
+  <pre class="chroma" role="region" aria-label="{{ $label }}" tabindex="0"><code class="language-{{ $lang }}">{{ $result.Inner }}</code></pre>
+</div>

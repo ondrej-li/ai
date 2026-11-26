@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{- $paginator := .Paginate .Pages -}}
+<section class="section page-section">
+  <div class="wrap">
+    <header class="page-header">
+      <p class="kicker mono">
+        {{- if eq .Kind "term" -}}
+          {{ i18n "tagged_with" }}
+        {{- else -}}
+          {{ i18n "section_dispatches_kicker" }}
+        {{- end -}}
+      </p>
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}
+      <p class="page-lede">{{ . }}</p>
+      {{- end }}
+    </header>
+
+    {{- if gt (len $paginator.Pages) 0 }}
+    <div class="card-grid">
+      {{- range $paginator.Pages }}
+        {{ partial "article-card.html" . }}
+      {{- end }}
+    </div>
+
+      {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pagination" aria-label="{{ i18n "pagination_label" }}">
+      {{- if $paginator.HasPrev }}
+      <a class="btn" href="{{ $paginator.Prev.URL }}" rel="prev">← {{ i18n "pagination_prev" }}</a>
+      {{- end }}
+      <span class="pagination-info mono">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+      {{- if $paginator.HasNext }}
+      <a class="btn" href="{{ $paginator.Next.URL }}" rel="next">{{ i18n "pagination_next" }} →</a>
+      {{- end }}
+    </nav>
+      {{- end }}
+    {{- else }}
+    <div class="standby-panel">
+      <div class="standby-header mono">
+        <span class="standby-dot" aria-hidden="true"></span>
+        <span>{{ i18n "robot_status_standby" }}</span>
+      </div>
+      <h2>{{ i18n "empty_title" }}</h2>
+      <p>{{ i18n "empty_body" }}</p>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

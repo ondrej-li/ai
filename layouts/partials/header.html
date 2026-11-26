@@ -1,0 +1,70 @@
+{{- $postsPage := site.GetPage "posts" -}}
+{{- $tagsPage := site.GetPage "tags" -}}
+{{- $aboutPage := site.GetPage "about" -}}
+{{- $altLang := false -}}
+{{- if .IsTranslated -}}
+  {{- range .Translations -}}
+    {{- $altLang = . -}}
+  {{- end -}}
+{{- else -}}
+  {{- range site.Home.Translations -}}
+    {{- $altLang = . -}}
+  {{- end -}}
+{{- end -}}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>
+      {{ partial "robot-mark.html" . }}
+      <span class="brand-text">ai<span class="brand-domain">.ondralinek.cz</span></span>
+    </a>
+
+    <nav class="site-nav" aria-label="{{ i18n "nav_primary" }}">
+      <button
+        class="menu-button"
+        type="button"
+        popovertarget="site-menu"
+        popovertargetaction="toggle"
+        aria-controls="site-menu"
+      >
+        <svg class="icon-menu" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"/>
+        </svg>
+        <span>{{ i18n "nav_menu" }}</span>
+      </button>
+
+      <ul id="site-menu" class="site-menu" popover="auto">
+        {{- with $postsPage }}
+        <li>
+          <a href="{{ .RelPermalink }}"{{ if or (eq $.RelPermalink .RelPermalink) (eq $.Section "posts") }} aria-current="page"{{ end }}>{{ i18n "nav_articles" }}</a>
+        </li>
+        {{- end }}
+        {{- with $tagsPage }}
+        <li>
+          <a href="{{ .RelPermalink }}"{{ if or (eq $.Kind "taxonomy") (eq $.Kind "term") }} aria-current="page"{{ end }}>{{ i18n "nav_tags" }}</a>
+        </li>
+        {{- end }}
+        {{- with $aboutPage }}
+        <li>
+          <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ i18n "nav_about" }}</a>
+        </li>
+        {{- end }}
+        {{- with site.Home.OutputFormats.Get "rss" }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ i18n "nav_rss" }}</a>
+        </li>
+        {{- end }}
+        {{- with $altLang }}
+        <li>
+          <a
+            class="lang-switch"
+            href="{{ .RelPermalink }}"
+            hreflang="{{ .Language.Lang }}"
+            lang="{{ .Language.Lang }}"
+            aria-label="{{ i18n "lang_switch_label" }} {{ .Language.LanguageName }}"
+          >{{ .Language.LanguageName }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

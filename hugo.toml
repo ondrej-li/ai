@@ -1,0 +1,52 @@
+baseURL = "https://ai.ondralinek.cz/"
+title = "AI — Ondra Linek"
+enableRobotsTXT = true
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+summaryLength = 35
+enableEmoji = false
+
+[pagination]
+  pagerSize = 12
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html", "rss"]
+
+[params]
+  author = "Ondra Linek"
+  email = "me@ondralinek.cz"
+  homeSite = "https://ondralinek.cz/"
+  github = "https://github.com/ondrej-li"
+  source = "https://github.com/ondrej-li/ai"
+  unitId = "UNIT-01 // AI-LOG"
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-GB"
+    contentDir = "content/en"
+    weight = 1
+    title = "AI — Ondra Linek"
+    [languages.en.params]
+      description = "Thoughts, field notes, and essays on artificial intelligence, autonomous agents, and human-machine craft by Ondra Linek."
+
+  [languages.cs]
+    languageName = "Čeština"
+    languageCode = "cs-CZ"
+    contentDir = "content/cs"
+    weight = 2
+    title = "AI — Ondra Linek"
+    [languages.cs.params]
+      description = "Úvahy, poznámky z praxe a eseje o umělé inteligenci, autonomních agentech a spolupráci člověka se strojem od Ondry Linka."
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    tabWidth = 2

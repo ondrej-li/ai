@@ -1,0 +1,27 @@
+<article class="card">
+  <header class="card-head">
+    <p class="card-meta mono">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ i18n "reading_time" .ReadingTime }}</span>
+    </p>
+    <h3>
+      <a class="card-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h3>
+  </header>
+  {{- with .Description }}
+  <p class="card-summary">{{ . }}</p>
+  {{- else }}
+  <p class="card-summary">{{ .Summary | plainify | truncate 160 }}</p>
+  {{- end }}
+  <footer class="card-foot">
+    {{- with .GetTerms "tags" }}
+    <ul class="tag-list">
+      {{- range . }}
+      <li><a class="tag" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+    <span class="card-cta mono" aria-hidden="true">{{ i18n "read_article" }} →</span>
+  </footer>
+</article>

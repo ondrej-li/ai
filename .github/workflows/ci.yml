@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  hugo:
+    name: Build the site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.146.0"
+
+      - name: Build
+        run: hugo --minify --cleanDestinationDir -d "$RUNNER_TEMP/public"
+
+      - name: Verify core outputs
+        run: |
+          for f in index.html cs/index.html 404.html robots.txt sitemap.xml favicon.svg favicon.ico og.png; do
+            test -s "$RUNNER_TEMP/public/$f" || { echo "Missing $f"; exit 1; }
+          done

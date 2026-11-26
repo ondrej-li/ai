@@ -1,0 +1,13 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Local caches & OS files
+.cache/
+.DS_Store
+*.swp
+.idea/
+.vscode/
+__pycache__/
+*.pyc
